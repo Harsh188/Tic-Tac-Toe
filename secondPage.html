@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<style type="text/css">
+        .button {
+        	width: 100px;
+        	height: 50px;
+        	margin: 20px;
+        }
+        .h2 {
+        	font-size: 35px;
+        	font-weight: bold;;
+        }
+        .back {
+        	background: rgba(48, 25, 52, 0.35);
+        	background-size: 300px , 300px;
+        }
+	</style>
+	
+	<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<h1><strong>TIC-TAC-TOE</strong></h1>
+		</header>
+
+	</div>
+	
+	<div id="wrapper" class="back">
+		<center>
+			<h2 class="h2">Player vs Player</h3>
+			<button class="button" id="PVP" onclick="location.href='https://google.com'">PvP</button>
+
+			<h2 class="h2">Player vs AI</h3>
+			<button class="button" id="PvA" onclick="location.href='https://google.com'">PvA</button>
+			
+			<h2 class="h2">Rules</h3>
+			<button class="button" id="RULES" onclick="location.href='howto.html'">RULES</button>
+		</center>
+	</div>
+
+	<footer id="footer">
+		<P>Web Technologies Mini-project 2020</P>
+	</footer>
+
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
