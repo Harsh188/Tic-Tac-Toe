@@ -7,7 +7,8 @@ const userSchema = new Schema({
     wins: Number,
     losses: Number,
     ratio: Number,
-    total: Number
+    total: Number,
+    rank: Number
 });
 
 const User = mongoose.model('user', userSchema);
