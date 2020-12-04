@@ -1,8 +1,30 @@
 import React, {Component} from 'react'
+import api from '../api'
+
 import '../style/css/main.css'
 
 class Login extends Component{
+  constructor(props){
+    super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+    }
+  }
+
+  updateUser = event =>{
+    event.preventDefault()
+
+    window.location.href = `/user/${this.props.id}`
+  }
+
+  handleSubmit = async event =>{
+    const {username, password} = this.state
+    await api.findUserById(this.props.id)
+  }
   render() {
+    const {username, password} = this.state
     return (
       <div>
         <title>TIC-TAC-TOE</title>
@@ -28,7 +50,7 @@ class Login extends Component{
               </p>
               <br />
               <center>
-                <input type="submit" defaultValue="Login" id="auth" />
+                <input type="submit" defaultValue="Login" id="auth" onClick={this.updateUser}/>
               </center>
             </form>
             <p /><center>
