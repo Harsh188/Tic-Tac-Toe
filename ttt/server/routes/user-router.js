@@ -5,6 +5,7 @@ const UserCtrl = require('../controllers/user-ctrl.js')
 const router = express.Router()
 
 router.post('/user', UserCtrl.newUser)
-router.get('/findUser', UserCtrl.index)
+router.get('/users', UserCtrl.index)
+router.get('/user/:id', UserCtrl.findUser)
 
 module.exports = router
