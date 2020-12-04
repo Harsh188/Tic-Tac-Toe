@@ -1,3 +1,4 @@
 import Login from './Login'
+import Gameplay from './Gameplay'
 
-export {Login}
+export {Login, Gameplay}
