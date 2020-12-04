@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
+import '../style/css/main.css'
 
-const Login = React.createClass({
-    render: function () {
-        return (
-     <div id="wrapper">
+class Login extends Component{
+  render(){
+    return(
+      <div id="wrapper">
         {/* Header */}
         <header id="header">
           <h1><strong>TIC-TAC-TOE</strong></h1>
@@ -34,9 +35,8 @@ const Login = React.createClass({
           <p>Web Technologies Mini-project 2020</p>
         </footer>
       </div>
-    );
-        
-    }
-})
+    )
+  }
+}
 
 export default Login;
