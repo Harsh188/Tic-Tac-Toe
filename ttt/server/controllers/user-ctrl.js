@@ -1,6 +1,6 @@
 const User = require('../models/user-model');
 
-index = (req, res, next) => {
+index = (req, res) => {
         User.find({}, (err, users) => {
             if (err) {
                 next(err);
