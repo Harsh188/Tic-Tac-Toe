@@ -2,6 +2,7 @@ import { strikethrough } from 'chalk';
 import { Color } from 'chalk';
 import React, { Component } from 'react'
 import Board from './Board';
+import LeaderBoard from './LeaderBoard'
 
 class Game extends Component {
     constructor(props) {
@@ -99,12 +100,19 @@ class Game extends Component {
                     </div>
                 </center>
                 <div><h1>{this.state.user2}</h1></div>
+                <div className="game-board">
+                <center>
+                    <Board onClick={(i) => this.handleClick(i)}
+                        squares={current.squares} />
+                </center>
+                </div>
                 <div className="game-info">
                     <div>{status}</div>
                     <ul>{moves}</ul>
                 </div>
 
 
+                <LeaderBoard/>
             </div>
         )
     }
