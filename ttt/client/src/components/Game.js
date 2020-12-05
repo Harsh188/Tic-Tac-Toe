@@ -3,6 +3,18 @@ import { Color } from 'chalk';
 import React, { Component } from 'react'
 import Board from './Board';
 import LeaderBoard from './LeaderBoard'
+import api from '../api'
+
+
+var headStyle_a = {
+    "color": "white",
+    "margin-right": "700px",
+}
+
+var headStyle_b = {
+    "color": "white",
+    "margin-left": "700px"
+}
 
 class Game extends Component {
     constructor(props) {
@@ -76,7 +88,10 @@ class Game extends Component {
         });
         let status;
         if (winner) {
-            status = winner+' Wins!';
+            status = winner + ' Wins!';
+            api.updateUser({
+                username:
+            })
         } else {
             status = 'Player ' + (this.state.xIsNext ? 'X' : 'O') + "'s turn";
         }
@@ -85,7 +100,7 @@ class Game extends Component {
         return (
             <div className="game" id="wrapper">
                 <center>
-                    <div><h1>{ this.state.user1}</h1></div>
+                    <div><h1 style={headStyle_a}>{ this.state.user1} <br/> X </h1></div>
                 <div className="game-board" >
                     <Board onClick={(i) => this.handleClick(i)}
                         squares={current.squares} />
@@ -94,7 +109,7 @@ class Game extends Component {
                     <div>{status}</div>
                     <ul>{moves}</ul>
                     </div>
-                <div><h1>{ this.state.user2}</h1></div>
+                <div><h1 style={headStyle_b}>{ this.state.user2}<br/>O</h1></div>
 
             </center>
             <LeaderBoard/>

@@ -8,7 +8,6 @@ export const insertUser = payload => api.post(`/user`, payload)
 export const getUserByUsername = username => api.get(`/user/${username}`)
 export const getAllUsers = () => api.get(`/users`)
 
-
 const apis = {
 	insertUser,
 	getUserByUsername,
