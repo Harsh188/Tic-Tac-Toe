@@ -23,19 +23,18 @@ class Leaderboard extends Component {
 
 	componentDidMount = async ()=>{
 		this.setState({isLoading: true})
-		var users1 = [];
-		users1 = await api.getAllUsers()
-		console.log(users1.data)
-		this.setState({
-			users: users1,
-			isLoading: false,
-		})
-		console.log(typeof(this.state.users)+' '+this.state.isLoading)
+		// var users1 = [];
+		// users1 = 
+		// console.log(users1.data.length)
+		// this.setState({
+		// 	users: await api.getAllUsers(),
+		// 	isLoading: false,
+		// })
+		// console.log(this.state.users.data.length+' '+this.state.isLoading)
 	}
 
     render() {
-        const { users, isLoading } = this.state
-
+    	const {users, isLoading} = this.state
         const columns = [
             {
                 Header: 'Rank',
@@ -67,7 +66,7 @@ class Leaderboard extends Component {
         ]
 
         let showTable = true
-        if (users && !users.length) {
+        if (users&& !users.length) {
             showTable = false
         }
 
@@ -75,9 +74,9 @@ class Leaderboard extends Component {
             <Wrapper>
                 {showTable && (
                     <ReactTable
-                        data={users}
+                        data={this.state.users.data}
                         columns={columns}
-                        loading={isLoading}
+                        loading={this.state.isLoading}
                         defaultPageSize={10}
                         showPageSizeOptions={true}
                         minRows={0}
