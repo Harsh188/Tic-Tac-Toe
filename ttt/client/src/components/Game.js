@@ -20,8 +20,6 @@ class Game extends Component {
 
     componentDidMount() {
         var url = window.location.href;
-        var user1 = '';
-        var user2 = '';
         console.log(url)
         var n = url.indexOf("user1")
         var n1 = url.indexOf("user2")
@@ -86,24 +84,17 @@ class Game extends Component {
 
         return (
             <div className="game" id="wrapper">
-                <div><h1>{this.state.user1}</h1></div><center>
+            <center>
                 <div className="game-board" >
                     <Board onClick={(i) => this.handleClick(i)}
                         squares={current.squares} />
-                    </div>
-                </center>
-                <div><h1>{this.state.user2}</h1></div>
-                <div className="game-board">
-                <center>
-                    <Board onClick={(i) => this.handleClick(i)}
-                        squares={current.squares} />
-                </center>
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
                     <ul>{moves}</ul>
                 </div>
-
+            </center>
+            <LeaderBoard/>
             </div>
         )
     }
