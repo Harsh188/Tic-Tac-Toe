@@ -32,10 +32,10 @@ class Game extends Component {
 
     componentDidMount() {
         var url = window.location.href;
-        console.log(url)
+        // console.log(url)
         var n = url.indexOf("user1")
         var n1 = url.indexOf("user2")
-        console.log(n+" "+n1)
+        // console.log(n+" "+n1)
 
         var user1 = url.slice(n+6, n1-1)
         var user2 = url.slice(n1+6)
@@ -89,11 +89,13 @@ class Game extends Component {
         let status;
         if (winner) {
             status = winner + ' Wins!';
-            api.updateUser({
-                username: winner,
+            console.log(this.state.user1)
+            var res = api.updateUserByUsername(this.state.user1,{
+                username: this.state.user1,
                 wins: 1,
                 losses: 0,
             })
+            console.log(res)
         } else {
             status = 'Player ' + (this.state.xIsNext ? 'X' : 'O') + "'s turn";
         }

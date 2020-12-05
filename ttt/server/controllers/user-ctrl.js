@@ -58,7 +58,12 @@ updateUser = async (req, res) => {
                 message: 'User not found',
             })
         }
-        user.username = body.username
+        if(!user){
+            return res
+                .status(404)
+                .json({success: false, error: `User not found`})
+        }
+        // user.username = body.username
         user.wins = user.wins + body.wins
         user.losses = user.losses + body.losses
         user.ratio = user.wins / user.losses

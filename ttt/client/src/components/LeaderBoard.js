@@ -31,16 +31,12 @@ class Leaderboard extends Component {
 
     render() {
     	const {users, isLoading} = this.state
-		console.log(users)
+		// console.log(users)
 		for (var x of users){
-			console.log(x)
+			// console.log(x)
 		}
 		// console.log(isLoading)
         const columns = [
-            {
-                Header: 'Rank',
-                accessor: 'rank',
-            },
             {
                 Header: 'Username',
                 accessor: 'username',
