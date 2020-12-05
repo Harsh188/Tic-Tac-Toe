@@ -1,3 +1,5 @@
+import { strikethrough } from 'chalk';
+import { Color } from 'chalk';
 import React, { Component } from 'react'
 import Board from './Board';
 import LeaderBoard from './LeaderBoard'
@@ -10,9 +12,37 @@ class Game extends Component {
             stepNumber: 0,
             history: [
                 { squares: Array(9).fill(null) }
-            ]
+            ],
+            user1: '',
+            user2: '',
         }
     }
+
+    componentDidMount() {
+        var i = 0;
+        var count = 0;
+        var flag = 1;
+        var url = window.location.href;
+        var user1 = '';
+        var user2 = '';
+        while (flag) {
+            if (url.charAt(i) === '/')
+                count = count+1;
+            if (count === 4) {
+                user1 = user1 + url.charAt(i);
+            }
+            if (count === 6) {
+                user2 = user2 + url.charAt(i);
+            }
+            if (url.charAt(i) === '\0')
+                flag = 0;
+            i = i + 1;
+        }
+        this.setState({ user1 });
+        this.setState({ user2 });
+    }
+
+
     jumpTo(step){
         this.setState({
             stepNumber: step,
@@ -63,6 +93,13 @@ class Game extends Component {
 
         return (
             <div className="game" id="wrapper">
+                <div><h1>{this.state.user1}</h1></div><center>
+                <div className="game-board" >
+                    <Board onClick={(i) => this.handleClick(i)}
+                        squares={current.squares} />
+                    </div>
+                </center>
+                <div><h1>{this.state.user2}</h1></div>
                 <div className="game-board">
                 <center>
                     <Board onClick={(i) => this.handleClick(i)}
@@ -73,6 +110,8 @@ class Game extends Component {
                     <div>{status}</div>
                     <ul>{moves}</ul>
                 </div>
+
+
                 <LeaderBoard/>
             </div>
         )

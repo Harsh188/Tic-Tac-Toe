@@ -18,6 +18,7 @@ class Login extends Component{
       user2: '',
     }
   }
+  
 
   handleChangeInputUsername1 = async event =>{
     const usernameOne = event.target.value
@@ -60,7 +61,7 @@ class Login extends Component{
       console.log(jsonUser.password+' '+this.state.passwordOne)
       console.log(jsonUser._id)
 
-      if(this.state.passwordOne==jsonUser.password){
+      if(this.state.passwordOne===jsonUser.password){
         const user1 = 'yes'
         this.setState({user1})
         console.log("Yes1")
@@ -86,7 +87,7 @@ class Login extends Component{
       console.log(jsonUser.password+' '+this.state.passwordTwo)
       console.log(jsonUser._id)
 
-      if(this.state.passwordTwo==jsonUser.password){
+      if(this.state.passwordTwo===jsonUser.password){
         const user2 = 'yes'
         this.setState({user2})
         console.log("Yes2")
