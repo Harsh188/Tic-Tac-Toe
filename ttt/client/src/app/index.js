@@ -11,7 +11,7 @@ function App() {
     return (
         <Router>
           <Route path ='/' exact component={Login} />
-          <Route path ="/user/:username" exact component={Game} />
+          <Route path ="/user/:username/:id" exact component={Game} />
         </Router>
     )
 }

@@ -32,21 +32,32 @@ class Login extends Component{
   handleSubmit = async event =>{
     event.preventDefault()
     console.log(this.state.username+' '+this.state.password)
-    
-    const user = JSON.stringify(await api.getUserByUsername(this.state.username))
-    
-    var jsonUser = JSON.parse(user)
-    console.log(jsonUser.data.data.password+' '+this.state.password)
+    try{
+      const user = JSON.stringify(
+        await api.getUserByUsername(this.state.username))
+      var jsonUser = JSON.parse(user).data.data
 
+      console.log(jsonUser.password+' '+this.state.password)
+      console.log(jsonUser._id)
 
-    if(this.state.password==jsonUser.data.data.password){
-      console.log("Yes")
-      window.location.href = `/user/${this.state.username}`
+      if(this.state.password==jsonUser.password){
+        console.log("Yes")
+        window.location.href = `/user/${this.state.username}/${jsonUser._id}`
+      }
+      else{
+        window.alert('Password is oncorrect.')
+      }
+    } catch(e){
+      window.alert('Username does not exist.')
+      return
     }
   }
 
   render() {
     const {username, password} = this.state
+    const myStyle = {
+      color: "#E6E6FA",
+    }
     return (
       <div>
         <title>TIC-TAC-TOE</title>
@@ -75,14 +86,13 @@ class Login extends Component{
                 <input type="submit" defaultValue="Login" id="auth" onClick={this.handleSubmit}/>
               </center>
             </form>
-            <p /><center>
-              Forgot Password?<br />
-              New player? <a href="hello.html"> Sign In</a><br />
-            </center><p />
+            <center><p style={myStyle}>
+              New player? <a href="/signUp">Sign Up</a><br />
+            </p></center>
           </section>
           {/* Footer */}
           <footer id="footer">
-            <p>Web Technologies Mini-project 2020</p>
+            <p style={myStyle}>Web Technologies Mini-project 2020</p>
           </footer>
         </div>
         {/* Scripts */}
