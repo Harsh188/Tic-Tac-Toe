@@ -90,7 +90,9 @@ class Game extends Component {
         if (winner) {
             status = winner + ' Wins!';
             api.updateUser({
-                username:
+                username: winner,
+                wins: 1,
+                losses: 0,
             })
         } else {
             status = 'Player ' + (this.state.xIsNext ? 'X' : 'O') + "'s turn";
