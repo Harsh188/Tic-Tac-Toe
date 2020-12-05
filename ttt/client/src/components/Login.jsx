@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import api from '../api'
 
-import '../style/css/main.css'
+// import '../style/css/main.css'
 
 class Login extends Component{
   constructor(props){
@@ -137,7 +137,7 @@ class Login extends Component{
         <title>TIC-TAC-TOE</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="assets/css/main.css" />
+        // <link rel="stylesheet" href="assets/css/main.css" />
         {/* Wrapper */}
         <div id="wrapper">
           {/* Header */}
@@ -162,9 +162,6 @@ class Login extends Component{
                   <input type="submit" defaultValue="Login" id="auth1" onClick={this.handleSubmit1}/>
                 </center>
               </form>
-              <center><p style={myStyle}>
-                New player? <a href="/signUp">Create account</a><br />
-              </p></center>
             </section>
             {/* Section2 */}
             <section style={floatChild2} id='section2'>
@@ -182,14 +179,15 @@ class Login extends Component{
                   <input type="submit" defaultValue="Login" id="auth2" onClick={this.handleSubmit2}/>
                 </center>
               </form>
-              <center><p style={myStyle}>
-                New player? <a href="/signUp">Create account</a><br />
-              </p></center>
+              
             </section>
           </section>
           {/* Footer */}
           <footer id="footer">
-            <p style={myStyle}>Web Technologies Mini-project 2020</p>
+              <p style={myStyle}>
+                New player? <a href="/signUp">Create account</a><br />
+              </p>            
+              <p style={myStyle}>Web Technologies Mini-project 2020</p>
           </footer>
         </div>
         {/* Scripts */}

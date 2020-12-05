@@ -3,8 +3,8 @@ import Square from './Square';
 
 
 var divStyle = {
-    "margin": "225px",
-    "margin-left": "530px"
+    "margin-top": "225px",
+    // "margin-left": "530px"
 }
 
 class Board extends Component {

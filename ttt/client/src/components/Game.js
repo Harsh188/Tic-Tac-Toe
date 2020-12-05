@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Board from './Board';
+import LeaderBoard from './LeaderBoard'
 
 class Game extends Component {
     constructor(props) {
@@ -61,16 +62,18 @@ class Game extends Component {
 
 
         return (
-            <div className="game">
+            <div className="game" id="wrapper">
                 <div className="game-board">
+                <center>
                     <Board onClick={(i) => this.handleClick(i)}
                         squares={current.squares} />
+                </center>
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
                     <ul>{moves}</ul>
                 </div>
-
+                <LeaderBoard/>
             </div>
         )
     }
