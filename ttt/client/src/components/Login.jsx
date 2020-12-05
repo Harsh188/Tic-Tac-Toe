@@ -41,10 +41,12 @@ class Login extends Component{
 
   handleChangeBackgroundColor1 = async event =>{
     const backgroundColor1 = 'rgba(0,128,0,0.25)'
+    this.setState({backgroundColor1})
   }
 
   handleChangeBackgroundColor2 = async event =>{
     const backgroundColor2 = 'rgba(0,128,0,0.25)'
+    this.setState({backgroundColor2})
   }
 
   handleSubmit1 = async event =>{
@@ -107,7 +109,14 @@ class Login extends Component{
   }
 
   render() {
-    const {username, password} = this.state
+    const {usernameOne,
+      passwordOne,
+      usernameTwo,
+      passwordTwo,
+      backgroundColor1,
+      backgroundColor2,
+      user1,
+      user2} = this.state
     const myStyle = {
       color: "#E6E6FA",
     }
@@ -138,15 +147,15 @@ class Login extends Component{
           {/* Main */}
           <section id="main">
             {/* Section1 */}
-            <section style={floatChild1}>
+            <section style={floatChild1} id='section1'>
               <form>
                 <p>
                   <label>Username</label>
-                  <input type="text" name="username" id="username1" value={username} onChange={this.handleChangeInputUsername1}/>
+                  <input type="text" name="username" id="username1" value={usernameOne} onChange={this.handleChangeInputUsername1}/>
                 </p>
                 <p>
                   <label>Password</label>
-                  <input type="password" name="password" id="password1" value={password} onChange={this.handleChangeInputPassword1}/>
+                  <input type="password" name="password" id="password1" value={passwordOne} onChange={this.handleChangeInputPassword1}/>
                 </p>
                 <br />
                 <center>
@@ -158,15 +167,15 @@ class Login extends Component{
               </p></center>
             </section>
             {/* Section2 */}
-            <section style={floatChild2}>
+            <section style={floatChild2} id='section2'>
               <form>
                 <p>
                   <label>Username</label>
-                  <input type="text" name="username" id="username2" value={username} onChange={this.handleChangeInputUsername2}/>
+                  <input type="text" name="username" id="username2" value={usernameTwo} onChange={this.handleChangeInputUsername2}/>
                 </p>
                 <p>
                   <label>Password</label>
-                  <input type="password" name="password" id="password2" value={password} onChange={this.handleChangeInputPassword2}/>
+                  <input type="password" name="password" id="password2" value={passwordTwo} onChange={this.handleChangeInputPassword2}/>
                 </p>
                 <br />
                 <center>
