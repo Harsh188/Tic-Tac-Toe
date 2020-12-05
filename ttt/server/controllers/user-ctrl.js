@@ -59,10 +59,10 @@ updateUser = async (req, res) => {
             })
         }
         user.username = body.username
-        user.wins = body.wins
-        user.losses = body.losses
-        user.ratio = body.ratio
-        user.total = body.total
+        user.wins = user.wins + body.wins
+        user.losses = user.losses + body.losses
+        user.ratio = user.wins / user.losses
+        user.total = user.wins + user.losses
         user
             .save()
             .then(() => {
