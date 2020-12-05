@@ -88,14 +88,33 @@ class Game extends Component {
         });
         let status;
         if (winner) {
-            status = winner + ' Wins!';
-            console.log(this.state.user1)
-            var res = api.updateUserByUsername(this.state.user1,{
-                username: this.state.user1,
-                wins: 1,
-                losses: 0,
-            })
-            console.log(res)
+            if (winner === 'X') {
+                status = this.state.user1 + ' Wins!';
+                console.log(this.state.user1)
+                api.updateUserByUsername(this.state.user1, {
+                    username: this.state.user1,
+                    wins: 1,
+                    losses: 0,
+                })
+                api.updateUserByUsername(this.state.user2, {
+                    username: this.state.user2,
+                    wins: 0,
+                    losses: 1,
+                })
+            } else if(winner==='O'){
+                status = this.state.user2 + ' Wins!';
+                console.log(this.state.user2)
+                api.updateUserByUsername(this.state.user2, {
+                    username: this.state.user2,
+                    wins: 1,
+                    losses: 0,
+                })
+                api.updateUserByUsername(this.state.user1, {
+                    username: this.state.user1,
+                    wins: 0,
+                    losses: 1,
+                })
+            }
         } else {
             status = 'Player ' + (this.state.xIsNext ? 'X' : 'O') + "'s turn";
         }
