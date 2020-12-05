@@ -1,21 +1,17 @@
 import React, {Component} from 'react'
-import ReactTable from 'react-table'
+import ReactTable from 'react-table-6'
 import api from '../api'
 
 import '../style/css/main.css'
 import styled from 'styled-components'
 
-// import 'react-table/react-table.css'
-
-const Wrapper = styled.div`
-	padding: 0 40px 40px 40px;
-`
+import 'react-table-6/react-table.css'
 
 class Leaderboard extends Component {
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	    users: [],
+	    users: Array(),
 	    columns: [],
 	    isLoading: false,
 	  }
@@ -23,33 +19,35 @@ class Leaderboard extends Component {
 
 	componentDidMount = async ()=>{
 		this.setState({isLoading: true})
-		// var users1 = [];
-		// users1 = 
-		// console.log(users1.data.length)
-		// this.setState({
-		// 	users: await api.getAllUsers(),
-		// 	isLoading: false,
-		// })
-		// console.log(this.state.users.data.length+' '+this.state.isLoading)
+		var huh = JSON.stringify(await api.getAllUsers())
+		huh = JSON.parse(huh).data
+		// console.log(huh)
+		this.setState({
+			users: huh,
+			isLoading: false,
+		})
+		// console.log(this.state.users)
 	}
 
     render() {
     	const {users, isLoading} = this.state
+		console.log(users)
+		for (var x of users){
+			console.log(x)
+		}
+		// console.log(isLoading)
         const columns = [
             {
                 Header: 'Rank',
                 accessor: 'rank',
-                filterable: true,
             },
             {
                 Header: 'Username',
                 accessor: 'username',
-                filterable: true,
             },
             {
                 Header: 'Wins',
                 accessor: 'wins',
-                filterable: true,
             },
             {
                 Header: 'Losses',
@@ -66,23 +64,33 @@ class Leaderboard extends Component {
         ]
 
         let showTable = true
-        if (users&& !users.length) {
+        if (users && !users.length) {
             showTable = false
         }
 
+        const divStyle = {
+        	padding: "0 40px 40px 40px",
+        	backgroundColor: "rgba(255,255,255,0.75"
+
+        }
         return (
-            <Wrapper>
+			// <h1>hsdfas</h1>
+			<div style={divStyle}>
+				<div><center>
+					<h3>Leaderboard</h3>
+				</center></div>
                 {showTable && (
                     <ReactTable
-                        data={this.state.users.data}
+                        data={users}
                         columns={columns}
-                        loading={this.state.isLoading}
-                        defaultPageSize={10}
-                        showPageSizeOptions={true}
+                        loading={isLoading}
+                        showPageSizeOptions={false}
                         minRows={0}
+                        showPageJump={false}
+                        showPagination={false}
                     />
                 )}
-            </Wrapper>
+	        </div>
         )
     }
 }
