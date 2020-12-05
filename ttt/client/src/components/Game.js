@@ -19,27 +19,20 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        var i = 0;
-        var count = 0;
-        var flag = 1;
         var url = window.location.href;
         var user1 = '';
         var user2 = '';
-        while (flag) {
-            if (url.charAt(i) === '/')
-                count = count+1;
-            if (count === 4) {
-                user1 = user1 + url.charAt(i);
-            }
-            if (count === 6) {
-                user2 = user2 + url.charAt(i);
-            }
-            if (url.charAt(i) === '\0')
-                flag = 0;
-            i = i + 1;
-        }
-        this.setState({ user1 });
-        this.setState({ user2 });
+        console.log(url)
+        var n = url.indexOf("user1")
+        var n1 = url.indexOf("user2")
+        console.log(n+" "+n1)
+
+        var user1 = url.slice(n+6, n1-1)
+        var user2 = url.slice(n1+6)
+        console.log(user1+' '+user2)
+
+        // this.setState({ user1 });
+        // this.setState({ user2 });
     }
 
 
@@ -111,8 +104,6 @@ class Game extends Component {
                     <ul>{moves}</ul>
                 </div>
 
-
-                <LeaderBoard/>
             </div>
         )
     }
