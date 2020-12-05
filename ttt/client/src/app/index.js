@@ -14,6 +14,7 @@ function App() {
           <Route path ='/signUp' exact component={SignUp}/>
         <Route path="/user/:username/:id" exact component={Game} />
         <Route path ="/game" exact component={Game} />
+          <Route path ="/user1/:username1/user2/:username2" exact component={Game} />
         </Router>
     )
 }
