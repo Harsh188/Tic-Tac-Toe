@@ -12,7 +12,8 @@ function App() {
         <Router>
           <Route path ='/' exact component={Login} />
           <Route path ='/signUp' exact component={SignUp}/>
-          <Route path ="/user/:username/:id" exact component={Game} />
+        <Route path="/user/:username/:id" exact component={Game} />
+        <Route path ="/game" exact component={Game} />
         </Router>
     )
 }

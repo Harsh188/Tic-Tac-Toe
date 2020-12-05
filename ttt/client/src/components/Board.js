@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Square from './Square';
 
+
+var divStyle = {
+    "margin": "225px",
+    "margin-left": "530px"
+}
+
 class Board extends Component {
     renderSquare(i, style){
         return <Square style={style} value={this.props.squares[i]}
@@ -9,7 +15,7 @@ class Board extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={divStyle}>
                 <div className="border-row">
                     {this.renderSquare(0,{"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
                     {this.renderSquare(1, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
