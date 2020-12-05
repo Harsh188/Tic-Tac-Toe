@@ -13,12 +13,6 @@ class Login extends Component{
     }
   }
 
-  updateUser = event =>{
-    event.preventDefault()
-
-    window.location.href = `/user/${this.props.id}`
-  }
-
   handleChangeInputUsername = async event =>{
     const username = event.target.value
     this.setState({username})
@@ -45,7 +39,7 @@ class Login extends Component{
         window.location.href = `/user/${this.state.username}/${jsonUser._id}`
       }
       else{
-        window.alert('Password is oncorrect.')
+        window.alert('Password is incorrect.')
       }
     } catch(e){
       window.alert('Username does not exist.')
