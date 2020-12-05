@@ -94,7 +94,7 @@ class Game extends Component {
                     <div>{status}</div>
                     <ul>{moves}</ul>
                     </div>
-                                        <div><h1>{ this.state.user2}</h1></div>
+                <div><h1>{ this.state.user2}</h1></div>
 
             </center>
             <LeaderBoard/>
