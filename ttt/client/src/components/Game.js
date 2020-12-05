@@ -27,10 +27,10 @@ class Game extends Component {
 
         var user1 = url.slice(n+6, n1-1)
         var user2 = url.slice(n1+6)
-        console.log(user1+' '+user2)
+        // console.log(user1+' '+user2)
 
-        // this.setState({ user1 });
-        // this.setState({ user2 });
+        this.setState({ user1 });
+        this.setState({ user2 });
     }
 
 
@@ -84,7 +84,8 @@ class Game extends Component {
 
         return (
             <div className="game" id="wrapper">
-            <center>
+                <center>
+                    <div><h1>{ this.state.user1}</h1></div>
                 <div className="game-board" >
                     <Board onClick={(i) => this.handleClick(i)}
                         squares={current.squares} />
@@ -92,7 +93,9 @@ class Game extends Component {
                 <div className="game-info">
                     <div>{status}</div>
                     <ul>{moves}</ul>
-                </div>
+                    </div>
+                                        <div><h1>{ this.state.user2}</h1></div>
+
             </center>
             <LeaderBoard/>
             </div>
