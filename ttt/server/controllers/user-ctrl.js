@@ -25,10 +25,7 @@ newUser = (req, res) => {
     }
 
     newUser
-        .save((err, user) => {
-            console.log('err', err);
-            console.log('user', user);
-        })
+        .save()
         .then(function(){
             return res.status(201).json({
                 success: true,
