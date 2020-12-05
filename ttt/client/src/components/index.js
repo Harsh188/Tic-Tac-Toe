@@ -1,4 +1,6 @@
 import Login from './Login'
-import Gameplay from './Gameplay'
+import Game from './Game'
+import Board from './Board'
+import Square from './Square'
 
-export {Login, Gameplay}
+export {Login, Game, Board, Square}
