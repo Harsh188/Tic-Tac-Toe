@@ -10,8 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
     return (
         <Router>
-          <Route path ='/' exact component={Login} />
-          <Route path ="/user/:username/:id" exact component={Game} />
+          {/* <Route path ='/' exact component={Login} />
+          <Route path ="/user/:username/:id" exact component={Game} /> */}
+        <Game />
         </Router>
     )
 }

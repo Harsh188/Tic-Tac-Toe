@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Square from './Square';
 
 class Board extends Component {
-    renderSquare(i){
-        return <Square value={this.props.squares[i]}
+    renderSquare(i, style){
+        return <Square style={style} value={this.props.squares[i]}
         onClick={()=>this.props.onClick(i)}
         />
     }
@@ -11,19 +11,19 @@ class Board extends Component {
         return (
             <div>
                 <div className="border-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
+                    {this.renderSquare(0,{"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
+                    {this.renderSquare(1, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
+                    {this.renderSquare(2, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"rgb(122,40,103)", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
                 </div>
                 <div className="border-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
+                    {this.renderSquare(3,{"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"} )}
+                    {this.renderSquare(4,{"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
+                    {this.renderSquare(5,{"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"rgb(122,40,103)", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"black"})}
                 </div>
                 <div className="border-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
+                    {this.renderSquare(6, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"rgb(122,40,103)"})}
+                    {this.renderSquare(7, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"rgb(122,40,103)"})}
+                    {this.renderSquare(8, {"background-color": "rgb(122,40,103)","border": "solid 0.3em gold" ,"border-right-color":"rgb(122,40,103)", "border-left-color":"rgb(122,40,103)", "border-top-color":"rgb(122,40,103)", "border-bottom-color":"rgb(122,40,103)"})}
                 </div>
                 
             </div>
