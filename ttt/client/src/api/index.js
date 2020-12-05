@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 export const insertUser = payload => api.post(`/user`, payload)
-export const getUserByUsername = id => api.get(`/user/${id}`)
+export const getUserByUsername = username => api.get(`user/${username}`)
 
 
 const apis = {

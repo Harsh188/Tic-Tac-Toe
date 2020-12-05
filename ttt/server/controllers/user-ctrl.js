@@ -85,8 +85,8 @@ updateUser = async (req, res) => {
 
 }
 
-findUser = async(req, res) =>{
-    await User.findOne({_id: req.params.id}, (err, user)=>{
+getUserByUsername = async(req, res) =>{
+    await User.findOne({username: req.params.username}, (err, user)=>{
         if(err){
             return res.status(400).json({success: false, error:err})
         }
@@ -105,6 +105,6 @@ findUser = async(req, res) =>{
 module.exports = {
     index,
     newUser,
-    findUser,
+    getUserByUsername,
     updateUser
 }

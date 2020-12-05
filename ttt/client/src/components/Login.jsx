@@ -19,10 +19,32 @@ class Login extends Component{
     window.location.href = `/user/${this.props.id}`
   }
 
-  handleSubmit = async event =>{
-    const {username, password} = this.state
-    await api.findUserById(this.props.id)
+  handleChangeInputUsername = async event =>{
+    const username = event.target.value
+    this.setState({username})
   }
+
+  handleChangeInputPassword = async event =>{
+    const password = event.target.value
+    this.setState({password})
+  }
+
+  handleSubmit = async event =>{
+    event.preventDefault()
+    console.log(this.state.username+' '+this.state.password)
+    
+    const user = JSON.stringify(await api.getUserByUsername(this.state.username))
+    
+    var jsonUser = JSON.parse(user)
+    console.log(jsonUser.data.data.password+' '+this.state.password)
+
+
+    if(this.state.password==jsonUser.data.data.password){
+      console.log("Yes")
+      window.location.href = `/user/${this.state.username}`
+    }
+  }
+
   render() {
     const {username, password} = this.state
     return (
@@ -39,18 +61,18 @@ class Login extends Component{
           </header>
           {/* Main */}
           <section id="main">
-            <form action=".index.js" method="post">
+            <form>
               <p>
                 <label>Username</label>
-                <input type="text" name="username" id="username" />
+                <input type="text" name="username" id="username" value={username} onChange={this.handleChangeInputUsername}/>
               </p>
               <p>
-                <lable>Password</lable>
-                <input type="password" name="password" id="password" />
+                <label>Password</label>
+                <input type="password" name="password" id="password" value={password} onChange={this.handleChangeInputPassword}/>
               </p>
               <br />
               <center>
-                <input type="submit" defaultValue="Login" id="auth" onClick={this.updateUser}/>
+                <input type="submit" defaultValue="Login" id="auth" onClick={this.handleSubmit}/>
               </center>
             </form>
             <p /><center>
