@@ -3,7 +3,6 @@ import ReactTable from 'react-table-6'
 import api from '../api'
 
 import '../style/css/main.css'
-import styled from 'styled-components'
 
 import 'react-table-6/react-table.css'
 
@@ -66,8 +65,12 @@ class Leaderboard extends Component {
 
         const divStyle = {
         	padding: "0 40px 40px 40px",
-        	backgroundColor: "rgba(255,255,255,0.75"
-
+        	backgroundColor: "rgba(48,25,52,0.75)",
+            color: "white",
+            borderColor: "white",
+        }
+        const myStyle = {
+            borderColor: "white"
         }
         return (
 			// <h1>hsdfas</h1>
@@ -84,6 +87,7 @@ class Leaderboard extends Component {
                         minRows={0}
                         showPageJump={false}
                         showPagination={false}
+                        style={myStyle}
                     />
                 )}
 	        </div>

@@ -23,7 +23,7 @@ class Game extends Component {
             xIsNext: true,
             stepNumber: 0,
             history: [
-                { squares: Array(9).fill(null) }
+                { squares: Array(9).fill(0) }
             ],
             user1: '',
             user2: '',

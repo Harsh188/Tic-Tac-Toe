@@ -41,7 +41,7 @@ class Board extends Component {
                     {this.renderSquare(5,this.combineStyle(commonButtonStyle, {"border-right-color":"rgb(122,40,103)", "border-left-color":"black", "border-top-color":"black", "border-bottom-color":"black"}))}
                 </div>
                 <div className="border-row">
-                {this.renderSquare(6, this.combineStyle(commonButtonStyle, {"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"black", "border-bottom-color":"rgb(122,40,103)"}))}
+                    {this.renderSquare(6, this.combineStyle(commonButtonStyle, {"border-right-color":"black", "border-left-color":"rgb(122,40,103)", "border-top-color":"black", "border-bottom-color":"rgb(122,40,103)"}))}
                     {this.renderSquare(7, this.combineStyle(commonButtonStyle, {"border-right-color":"black", "border-left-color":"black", "border-top-color":"black", "border-bottom-color":"rgb(122,40,103)"}))}
                     {this.renderSquare(8, this.combineStyle(commonButtonStyle, {"border-right-color":"rgb(122,40,103)", "border-left-color":"black", "border-top-color":"black", "border-bottom-color":"rgb(122,40,103)"}))}
                 </div>
