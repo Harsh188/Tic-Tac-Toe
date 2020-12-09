@@ -129,7 +129,7 @@ class Game extends Component {
                         squares={current.squares} />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
+                    <div><h3 style={{"color":"white"}}>{status}</h3></div>
                     <ul>{moves}</ul>
                     </div>
                 <div><h1 style={headStyle_b}>{ this.state.user2}<br/>O</h1></div>
