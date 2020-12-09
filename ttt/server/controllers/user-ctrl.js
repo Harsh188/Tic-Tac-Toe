@@ -2,6 +2,13 @@ const { reset } = require('chalk');
 const { update } = require('../models/user-model');
 const User = require('../models/user-model');
 
+function roundOff(n) {
+ if ((typeof n !== 'number') || (typeof 2 !== 'number'))
+   return false;
+    	n = parseFloat(n) || 0;
+	return n.toFixed(2);
+	}
+
 index = (req, res) => {
     User.find({}, (err, users) => {
         if (err) {
@@ -66,7 +73,7 @@ updateUser = async (req, res) => {
         // user.username = body.username
         user.wins = user.wins + body.wins
         user.losses = user.losses + body.losses
-        user.ratio = user.wins / user.losses
+        user.ratio = roundOff(user.wins / user.losses)
         user.total = user.wins + user.losses
         user
             .save()
