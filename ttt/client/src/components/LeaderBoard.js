@@ -70,7 +70,8 @@ class Leaderboard extends Component {
             borderColor: "white",
         }
         const myStyle = {
-            borderColor: "white"
+            borderColor: "white",
+            textAlign: "center"
         }
         return (
 			// <h1>hsdfas</h1>
