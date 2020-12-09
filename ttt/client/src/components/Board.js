@@ -9,11 +9,7 @@ var divStyle = {
 
 class Board extends Component {
     combineStyle(commonButtonStyle, customStyle){
-        console.log("Common: ",commonButtonStyle)
-        console.log("Custom: ",customStyle)
         const merged = Object.assign({},commonButtonStyle, customStyle)
-        console.log(merged)
-        console.log("\n\n\n")
         return merged
     }
     renderSquare(i, style){

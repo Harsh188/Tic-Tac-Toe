@@ -72,6 +72,13 @@ class Game extends Component {
 
     }
 
+    resetGame(i){
+        console.log(i)
+        if(i){
+            // window.location.href = `/user1/${this.state.user1}/user2/${this.state.user2}`
+        }
+    }
+
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -119,6 +126,13 @@ class Game extends Component {
             status = 'Player ' + (this.state.xIsNext ? 'X' : 'O') + "'s turn";
         }
 
+        const buttonStyle = {
+            "background-color": "rgb(122,40,103)",
+            "border": "solid 0.1em",
+            "fontSize": "30px",
+            "padding": "10px",
+            "margin": "10px",
+        }
 
         return (
             <div className="game" id="wrapper">
@@ -133,7 +147,7 @@ class Game extends Component {
                     <ul>{moves}</ul>
                     </div>
                 <div><h1 style={headStyle_b}>{ this.state.user2}<br/>O</h1></div>
-
+                <div><button style={buttonStyle} value={1} onClick={this.resetGame(1)}>Reset</button></div>
             </center>
             <LeaderBoard/>
             </div>
